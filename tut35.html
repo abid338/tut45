@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Designing Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .card:hover {
+            transform: translate(-5px);
+
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+
+        }
+
+        .capsules {
+            display: flex;
+            gap: 10px;
+            padding: 10px 15px;
+
+        }
+
+        .capsules span {
+            background-color: #ddd;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .content {
+            padding: 0 15px 10px 15px;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .button {
+            text-align: center;
+            padding: 10px 0 15px;
+        }
+
+        .button button {
+            padding: 8px 20px;
+            font-size: 14px;
+            background-color: #4a90e2;
+            border: none;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button button:hover {
+            background-color: #337ab7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- card1 -->
+        <div class="card">
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1510857817970-2a7060a55c8c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuJTIwb24lMjBib2F0fGVufDB8fDB8fHww"
+                    alt="Boat" />
+            </div>
+            <div class="capsules">
+                <span>Nature</span>
+                <span>Lake</span>
+            </div>
+            <div class="content">
+                <h2>Abdullah</h2>
+                <p>I'm Abdullah Abid from Minchinabad. I'm a Hafiz-e-Qur’an and have completed an Associate Degree in
+                    Computer Science. Passionate about web development and software engineering.
+                </p>
+            </div>
+            <div class="button">
+                <button>Read More</button>
+            </div>
+
+        </div>
+        <!-- card2 -->
+        <div class="card">
+            <div class="image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx-z6UyOt2DMZDH8-1ag5wl9_LmRMpZ8Krjg&s"
+                    alt="Sunrise" />
+            </div>
+            <div class="capsules">
+                <span>sunrise</span>
+                <span>Village</span>
+            </div>
+            <div class="content">
+                <h2>Sunrise In Village</h2>
+                <p>The golden sun slowly rises over the quiet fields, casting a warm glow on the dewy grass.
+
+                    Birds begin to chirp softly as the village wakes with calm and peace.
+
+                    Smoke curls from mud houses, and the fresh scent of earth fills the morning air. 🌄
+                </p>
+            </div>
+            <div class="button">
+                <button>Explore</button>
+            </div>
+        </div>
+        <!-- card3 -->
+        <div class="card">
+            <div class="image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj1-C1fAaxRezdLW5jPPBhs3w4gZvs8Dy2ug&s"
+                    alt="Rain">
+            </div>
+            <div class="capsules">
+                <span>Rain</span>
+                <span>Winter</span>
+
+            </div>
+            <div class="content">
+                <h2>Rainy Day</h2>
+                <p>Cold raindrops fall gently, soaking the quiet winter streets.
+
+Fog wraps the village as chimneys release soft smoke into the gray sky.
+
+Every drop feels heavier in the chill, adding silence to the already still world.</p>
+            </div>
+            <div class="button">
+                <button>Click Here</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

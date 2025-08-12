@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Cards</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color:#333;
+      padding: 20px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .capsules {
+      display: flex;
+      gap: 10px;
+      padding: 10px 15px;
+    }
+
+    .capsules span {
+      background-color: #ddd;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .content {
+      padding: 0 15px 10px 15px;
+    }
+
+    .content h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .button {
+      text-align: center;
+      padding: 10px 0 15px;
+    }
+
+    .button button {
+      padding: 8px 20px;
+      font-size: 14px;
+      background-color: #4a90e2;
+      border: none;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button button:hover {
+      background-color: #337ab7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="image">
+        <img src="https://img.freepik.com/free-photo/view-boat-floating-water-with-nature-scenery_23-2150693308.jpg"
+          alt="Boat" />
+      </div>
+      <div class="capsules">
+        <span>Nature</span>
+        <span>Lake</span>
+      </div>
+      <div class="content">
+        <h2>Abdullah</h2>
+        <p>
+          I'm Abdullah Abid from Minchinabad. I'm a Hafiz-e-Qur’an and have completed an Associate Degree in Computer Science. Passionate about web development and software engineering.
+        </p>
+      </div>
+      <div class="button">
+        <button>Read More</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Mountains" />
+      </div>
+      <div class="capsules">
+        <span>Adventure</span>
+        <span>Travel</span>
+      </div>
+      <div class="content">
+        <h2>Mount Escape</h2>
+        <p>
+          Discover breathtaking mountain escapes with peace, serenity, and an unforgettable experience in the lap of nature.
+        </p>
+      </div>
+      <div class="button">
+        <button>Explore</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913" alt="Coding" />
+      </div>
+      <div class="capsules">
+        <span>Tech</span>
+        <span>Coding</span>
+      </div>
+      <div class="content">
+        <h2>Web Projects</h2>
+        <p>
+          Build real-world web apps with HTML, CSS, and JavaScript. Learn frontend with consistency and modern tools.
+        </p>
+      </div>
+      <div class="button">
+        <button>Learn More</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

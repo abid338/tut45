@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Card Grid with Dark Mode</title>
+  <style>
+    :root {
+      --bg-light: #f2f2f2;
+      --text-light: #333;
+      --bg-dark: #1e1e1e;
+      --text-dark: #f9f9f9;
+      --card-bg-light: #fff;
+      --card-bg-dark: #2e2e2e;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: var(--card-bg-light);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .dark-mode .card {
+      background-color: var(--card-bg-dark);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .capsules {
+      display: flex;
+      gap: 10px;
+      padding: 10px 15px;
+    }
+
+    .capsules span {
+      background-color: #eee;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .dark-mode .capsules span {
+      background-color: #444;
+      color: #ccc;
+    }
+
+    .content {
+      padding: 0 15px 10px 15px;
+    }
+
+    .content h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .button {
+      text-align: center;
+      padding: 10px 0 15px;
+    }
+
+    .button button {
+      padding: 8px 20px;
+      font-size: 14px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Dark mode toggle button */
+    .dark-toggle {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .dark-toggle button {
+      padding: 8px 16px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .dark-mode .dark-toggle button {
+      background: #ddd;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dark-toggle">
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </div>
+
+  <div class="container">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="image">
+        <img
+          src="https://img.freepik.com/free-photo/view-boat-floating-water-with-nature-scenery_23-2150693308.jpg"
+          alt="Boat Image" />
+      </div>
+      <div class="capsules">
+        <span>Nature</span>
+        <span>Lake</span>
+      </div>
+      <div class="content">
+        <h2>Abdullah</h2>
+        <p>
+          Hafiz-e-Qur’an | Web Dev Learner | From Minchinabad | Passionate
+          about tech and software engineering.
+        </p>
+      </div>
+      <div class="button">
+        <button>Read More</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="image">
+        <img
+          src="https://img.freepik.com/free-photo/lush-green-mountains-surrounded-by-clouds-fog_181624-25938.jpg"
+          alt="Mountain" />
+      </div>
+      <div class="capsules">
+        <span>Travel</span>
+        <span>Adventure</span>
+      </div>
+      <div class="content">
+        <h2>Explore</h2>
+        <p>
+          Discover the hidden beauty of nature. Be adventurous, curious, and
+          brave like a traveler with a purpose.
+        </p>
+      </div>
+      <div class="button">
+        <button>Read More</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="image">
+        <img
+          src="https://img.freepik.com/free-photo/modern-desk-setup-with-computer-coding-screen_23-2150885285.jpg"
+          alt="Code" />
+      </div>
+      <div class="capsules">
+        <span>Coding</span>
+        <span>Projects</span>
+      </div>
+      <div class="content">
+        <h2>Developer</h2>
+        <p>
+          Build real-world projects with HTML, CSS, and JavaScript. Learn and
+          grow with each line of code you write.
+        </p>
+      </div>
+      <div class="button">
+        <button>Read More</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+
+</html>

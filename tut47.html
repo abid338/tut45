@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HOUZI — Fixed Responsive</title>
+
+<style>
+/* ---------- Base / Reset ---------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #222;
+  line-height: 1.4;
+}
+
+/* ---------- Header / Navbar ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  gap: 16px;
+}
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-section img { height: 40px; display:block; }
+.navlinks {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items:center;
+}
+.navlinks a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 6px 8px;
+}
+.navlinks a:hover { color: #007bff; }
+.store-icons { display:flex; gap:8px; align-items:center; }
+.store-icons img { height:30px; display:block; }
+
+/* ---------- Hero ---------- */
+#hero {
+  background: #f5f5f5;
+  padding: 48px 16px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1 1 320px;
+  min-width: 260px;
+}
+.hero-text h1 {
+  font-size: 32px;
+  margin: 0 0 12px;
+}
+.hero-text p { font-size:16px; margin:0 0 16px; color:#444; }
+.hero-buttons { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+
+/* button styles (re-usable) */
+.btn {
+  padding:10px 18px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn-gray { background: #777; color: #fff; }
+.btn-green { background: #28a745; color:#fff; }
+.btn-pink  { background: #d66b92; color:#fff; }
+
+/* hero image */
+.hero-image {
+  flex: 0 0 260px;
+  text-align: right;
+}
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display:block;
+}
+
+/* ---------- Features Section (UPDATED: flat & responsive) ---------- */
+.features-section {
+  padding: 50px 16px;
+  background-color: #f5f5f5;
+}
+.section-title {
+  text-align: center;         /* fixed from invalid 'flex' */
+  margin-bottom: 28px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-title h2 {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+.section-title p {
+  color: #666;
+  font-size: 16px;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* Use CSS Grid so columns auto-adjust across devices */
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: start;
+  margin-top: 18px;
+  padding: 0 8px;
+}
+
+/* Flat feature box (no card) */
+.feature-box {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 14px;
+  text-align: center;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* subtle hover feedback */
+.feature-box:hover {
+  transform: translateY(-6px);
+  background-color: rgba(0,0,0,0.03);
+}
+
+/* icon circle */
+.feature-box img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+  padding: 6px;
+  display:block;
+}
+
+/* text */
+.feature-box h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #222;
+}
+.feature-box p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  max-width: 320px;
+}
+
+/* MOBILE: icon left, text right layout for readability on small screens */
+@media (max-width: 767px) {
+  .feature-box {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 12px;
+    gap: 12px;
+  }
+  .feature-box img { width:56px; height:56px; flex: 0 0 56px; }
+  .feature-box h4 { font-size: 16px; }
+  .feature-box p { font-size: 13px; }
+}
+
+/* ---------- Details, Gallery, Pricing & Others (kept mostly same with small fixes) ---------- */
+.details { padding: 40px 16px; background: #f9f9f9; }
+.detail-row { display: flex; gap: 24px; align-items:center; margin-bottom: 48px; flex-wrap:wrap; }
+.detail-row.reverse { flex-direction: row-reverse; }
+.detail-row img { width: 320px; max-width:100%; height:auto; border-radius:10px; }
+.detail-text { flex: 1 1 320px; }
+
+.gallery { padding: 40px 16px; background: #f8f8f8; text-align:center; }
+.gallery .section-title { margin-bottom: 18px; }
+.Slider-container {
+  display:flex;
+  gap:20px;
+  padding: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.Slider-container::-webkit-scrollbar { display:none; }
+.slide { min-width: 250px; flex: 0 0 auto; background: #fff; border-radius:8px; padding:12px; box-shadow: 0 4px 10px rgba(0,0,0,0.06); text-align:center; }
+.slide img { width:100%; height:auto; border-radius:6px; display:block; }
+
+/* pricing */
+#pricing { padding: 60px 16px; background:#f9f9f9; }
+.pricing .container { max-width:1000px; margin: 0 auto; display:flex; flex-direction:column; gap:20px; }
+.box, .pro-box { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 14px rgba(0,0,0,0.04); }
+@media (min-width: 768px) {
+  .pricing .container { flex-direction:row; justify-content:space-between; gap:20px; }
+  .box, .pro-box { width:48%; }
+}
+
+/* contact & footer */
+.contact { padding: 40px 16px; background:#f4f4f4; }
+#footer { background:#222; color:#fff; padding:30px 16px; text-align:center; }
+
+/* small helpers */
+.text-center { text-align:center; }
+a { color: inherit; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo-section">
+      <img src="https://www.citypng.com/public/uploads/preview/hd-creative-graphic-flame-fire-logo-icon-png-701751694778396g9o3vwpdzr.png" alt="logo">
+      <strong>Houzi</strong>
+    </div>
+
+    <ul class="navlinks">
+      <li><a href="#Home">Home</a></li>
+      <li><a href="#App">App</a></li>
+      <li><a href="#Gallery">Gallery</a></li>
+      <li><a href="#Pricing">Pricing</a></li>
+      <li><a href="#Contact">Contact</a></li>
+      <li><a href="#Docs">Docs</a></li>
+    </ul>
+
+    <div class="store-icons">
+      <a href="#"><img src="https://www.freepnglogos.com/uploads/android-logo-png/android-logo-0.png" alt="play"></a>
+      <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW1EaWd00kzyrSpXF71xEyAdooRHcJuM248g&s" alt="app store"></a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-text">
+      <h1>Houzi — Real Estate App</h1>
+      <p>Houzi is a Flutter app for Houzez real estate WordPress theme. A complete mobile solution for property listings.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-gray">Apple Store</button>
+        <button class="btn btn-green">Google Play</button>
+        <button class="btn btn-pink">Buy on CodeCanyon</button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzSUvx4WsygqN8qJdZ7bNRNI1YEpHZH484Og&s" alt="app preview">
+    </div>
+  </div>
+</section>
+
+<main id="main">
+
+  <!-- FEATURES (fixed responsive) -->
+  <section class="features-section" id="features">
+    <div class="section-title">
+      <h2>App Features</h2>
+      <p>A perfect complement to your Houzez website — flexible, powerful and packed with features.</p>
+    </div>
+
+    <div class="features-container">
+      <div class="feature-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQVZnlCDYR45q-E12jPgGxLc5EMo1j6xjSVA&s" alt="">
+        <h4>Compatible with Houzez</h4>
+        <p>Fully compatible and integrates with Houzez theme.</p>
+      </div>
+
+      <div class="feature-box">
+        <img src="https://t4.ftcdn.net/jpg/05/40/16/51/360_F_540165188_147RBdJLAfRClWTGiSyAKi3zyxwFqNuJ.jpg" alt="">
+        <h4>Great Performance</h4>
+        <p>Optimized and fast UI for smooth user experience.</p>
+      </div>
+
+      <div class="feature-box">
+        <img src="https://png.pngtree.com/element_our/20200610/ourmid/pngtree-update-arrow-image_2239521.jpg" alt="">
+        <h4>Free Updates</h4>
+        <p>Pay once and receive all future updates at no extra cost.</p>
+      </div>
+
+      <div class="feature-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKPwub4urwJe62K5g-eylWbd__Y6zq2XWjAQ&s" alt="">
+        <h4>Houzez CRM</h4>
+        <p>Track activities, leads and close deals within the app.</p>
+      </div>
+
+      <div class="feature-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQvnjByRZZd5dba3RyUL7kr6R_XRpgcz9xcw&s" alt="">
+        <h4>Translation Ready</h4>
+        <p>RTL support and multiple languages included.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS (kept simple) -->
+  <section id="details" class="details">
+    <div class="container">
+      <div class="detail-row">
+        <img src="https://thumbs.dreamstime.com/b/man-holds-red-house-roll-dollars-over-word-assets-declaration-income-taxation-audit-ownership-man-holds-159601765.jpg" alt="">
+        <div class="detail-text">
+          <h3>Powerful search & filters</h3>
+          <p>Advanced radius and parameter based searches with saved searches and alerts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY (kept) -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>Gallery</h2>
+        <p>Take a closer look at beautifully crafted screens from the app.</p>
+      </div>
+    </div>
+
+    <div class="Slider-container">
+      <div class="slide"><img src="https://play-lh.googleusercontent.com/pIayScvH1tdhhlmr3C2jiLgkJCKg91p3J73D98rP-huHPC8VALequOuVnBnzWafR-Q=w526-h296-rw" alt=""><p>Home</p></div>
+      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0hM2eJCqrJQ_Vl-MtVJ9aSKyTo8PIvOSOWA&s" alt=""><p>Property Page</p></div>
+      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz7wxUilPufgsotQZpKCyja9V-yEYbRL6LhQ&s" alt=""><p>Map</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING (kept) -->
+  <section id="pricing" class="pricing">
+    <div class="container pricing-container">
+      <div class="box">
+        <h3>Buy Houzi</h3>
+        <h4>$59 <span>One license</span></h4>
+        <p>Flutter App Source Code — full features included.</p>
+      </div>
+
+      <div class="pro-box">
+        <h3>Hire us</h3>
+        <h4>$699 <span>Publish & Support</span></h4>
+        <p>We publish & configure your app on stores, Firebase setup and post-launch support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Get in touch for queries or custom feature requests.</p>
+      </div>
+
+      <div style="max-width:600px;margin:0 auto;">
+        <div class="form-group"><input class="form-control" placeholder="Your Name"></div>
+        <div class="form-group"><input class="form-control" placeholder="Your Email"></div>
+        <div class="form-group"><textarea class="form-control" placeholder="Message" rows="5"></textarea></div>
+        <div class="text-center"><button class="btn btn-green">Send Message</button></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div style="max-width:900px;margin:0 auto;padding:20px;">
+    <h3>Houzi</h3>
+    <p style="color:#ccc;max-width:700px;margin:0 auto;">A perfect compliment to your Houzez website. &copy; 2025 </p>
+  </div>
+</footer>
+
+</body>
+</html>

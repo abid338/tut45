@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS specificity & Casecading</title>
+    <style>
+        /* The specificity of element selector is 1*/
+        h1{
+            color: blueviolet;
+        }
+         /* The specificity of class selector is 10 */
+        .yellow{
+            color: blue;
+        }
+         /* The specificity of class selector is 10 */
+        .cred{
+            color: aquamarine;
+        }
+         /* The specificity of class selector is 10 */
+        .cpurple{
+            color: blueviolet;
+        }
+         /* The specificity of attribute selector is 10 */
+        [data-x=a]{
+            background-color: aqua;
+             /* The specificity of this selector is 1+10+10+10+10=41*/
+        }
+        a.harryclass.rohan-class[href]:hover{
+            color: indigo;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="color: blueviolet ;" class=" yellow cred cpurple" data-x="a">CSS Specificity</h1>
+    </div>
+    
+</body>
+</html>
