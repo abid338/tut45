@@ -15,33 +15,30 @@
 
         /* header section  */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 1200;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 997;
             background-color: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1px 10px;
-            /* thoda side padding for mobile */
-            flex-wrap: wrap;
-            /* mobile me wrap allow kare */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+            padding-top: 5px;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
             gap: 6px;
+
         }
 
         .logo-section img {
             height: 40px;
             width: auto;
-            display: block;
+            /* display: block; */
         }
 
         .logo-section span {
@@ -51,66 +48,68 @@
             white-space: nowrap;
         }
 
+        .navbar {
+
+            max-width: 1200px;
+            /* limit set */
+            margin: 0 auto;
+            /* center align */
+            padding: 0 40px;
+            /* equal left/right space */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+
+        }
+
         .navlinks {
             display: flex;
             gap: 15px;
             list-style: none;
-            flex-wrap: wrap;
-            /* mobile me break hone de */
         }
 
-        .navlinks li a {
+        .navlinks a {
+            color: rgb(81, 95, 125);
             text-decoration: none;
-            color: #333;
-            font-weight: 300;
-            transition: color 0.3s;
-        }
-
-        .navlinks li a:hover {
-            color: #007bff;
-        }
-
-        .store-icons {
-            display: flex;
-            align-items: center;
-            margin: 0;
-            padding: 0;
         }
 
         .store-icons img {
             height: 30px;
-            margin: 0px;
-            padding-right: 6px;
+            margin-left: 10px;
+
         }
 
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Mobile Styles */
         @media (max-width: 768px) {
-            body {
-                overflow-x: hidden;
-                /* remove horizontal scroll */
-            }
-
-            .navbar {
-                flex-direction: column;
-                /* logo, navlinks, store icons vertically */
-                align-items: center;
-            }
-
-            .logo-section {
-                margin-right: 0;
-                /* extra margin remove */
-                margin-bottom: 10px;
-            }
-
             .navlinks {
-                justify-content: center;
-                margin-bottom: 10px;
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                padding: 10px;
+                width: 200px;
             }
-        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            .navlinks.active {
+                display: flex;
+            }
+
+            .store-icons {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
         }
 
         html,
@@ -146,18 +145,21 @@
 
         }
 
-
-
-        /* Hero Section */
         /* Hero Section */
         #hero {
             position: relative;
-            height: 100vh;
+            min-height: 100svh;
             display: flex;
             align-items: center;
             overflow: hidden;
-            background-color: white;
+            padding-top: 80px;
         }
+
+
+
+
+
+
 
         /* Right side diagonal background */
         #hero::after {
@@ -255,7 +257,7 @@
         }
 
         .hero-right img {
-            max-width: 90%;
+            max-width: 80%;
             height: auto;
         }
 
@@ -280,6 +282,7 @@
                 max-width: 80%;
             }
         }
+
 
         .text-box {
             background-color: lightgray;
@@ -425,7 +428,7 @@
             }
         }
 
-        /* gallery section  */
+        /* gallery section */
         .gallery {
             padding: 20px 20px;
             text-align: center;
@@ -523,7 +526,7 @@
         }
 
         .pricing .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: auto;
             display: flex;
             flex-wrap: wrap;
@@ -594,14 +597,9 @@
             background: #e8f5e9;
             margin: 0;
             padding: 30px 0;
-            /* padding: 30px 20px; */
-            /* border-radius: 0; */
-            /* text-align: center; */
-            width: 100%;
-            /* left: 50%; */
-            /* transform: translateX(-50%); */
 
-            /* position: relative; */
+            width: 100%;
+
 
 
         }
@@ -633,103 +631,129 @@
             }
         }
 
-        /* contact section  */
-
-
         .contact {
-            padding: 60px 20px;
-            background-color: #f4f4f4;
+            padding: 50px 20px;
+            background: #fff;
             font-family: sans-serif;
-
         }
 
-        .contact .section-title {
+        .section-title h2 {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .contact .section-title h2 {
-            font-size: 2rem;
-            color: #222;
+            font-size: 28px;
+            color: #00a2ff;
             margin-bottom: 10px;
-            text-align: center;
         }
 
-        .contact .section-title p {
+        .section-title p {
+            text-align: center;
             color: #555;
-            font-size: 16px;
-
+            font-size: 15px;
+            max-width: 700px;
+            margin: auto;
         }
 
         .contact-row {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
+            justify-content: center;
+            gap: 30px;
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            flex-wrap: wrap;
         }
 
-        .contact-left,
+        /* Left side boxes */
+        .contact-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contact-box {
+            background: #f4f6f8;
+            padding: 25px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .contact-box i {
+            font-size: 28px;
+            color: #00a2ff;
+            margin-bottom: 10px;
+        }
+
+        .contact-box h4 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .contact-box p {
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .contact-box a {
+            color: #00a2ff;
+            text-decoration: none;
+        }
+
+        /* Right side form */
         .contact-right {
-            width: 48%;
-            /* Force side-by-side layout */
             background: #fff;
             padding: 20px;
-            border-radius: 4px;
-        }
-
-        .box1,
-        .box2 {
-            background: lightgray;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
+            flex: 1;
+            min-width: 300px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .form-control {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 3px;
+            font-size: 14px;
         }
 
         textarea.form-control {
             resize: vertical;
         }
 
-        .my-btn-lightgreen {
-            background-color: #00b894;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
+        .btn-send {
+            background: transparent;
+            border: 2px solid #00a2ff;
+            color: #00a2ff;
+            padding: 10px 20px;
+            border-radius: 25px;
             cursor: pointer;
+            font-size: 14px;
         }
 
-        .my-btn-lightgreen:hover {
-            background-color: #019874;
+        .btn-send:hover {
+            background: #00a2ff;
+            color: white;
         }
 
-        /* Prevent stacking until screen is very small */
-        @media (max-width: 600px) {
+        /* Responsive */
+        @media (max-width: 768px) {
             .contact-row {
                 flex-direction: column;
+                align-items: center;
             }
 
             .contact-left,
             .contact-right {
                 width: 100%;
+                max-width: 500px;
             }
         }
+
 
         /* === FOOTER SECTION === */
         #footer {
@@ -765,10 +789,12 @@
             text-decoration: underline;
         }
     </style>
+
 </head>
 
 <body>
     <header>
+
         <nav class="navbar">
             <div class="logo-section">
                 <img src="https://www.citypng.com/public/uploads/preview/hd-creative-graphic-flame-fire-logo-icon-png-701751694778396g9o3vwpdzr.png"
@@ -776,7 +802,12 @@
                 <span>Houzi</span>
             </div>
 
-            <!-- Center: Navigation Links -->
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleMenu()">
+                ☰
+            </div>
+
+            <!-- Navigation Links -->
             <ul class="navlinks">
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#App">App</a></li>
@@ -786,16 +817,13 @@
                 <li><a href="#Docs">Docs</a></li>
             </ul>
 
-            <!-- Right: Android & Apple Store Icons -->
+            <!-- Store Icons -->
             <div class="store-icons">
-                <a href="#" target="_blank">
-                    <img src="https://www.freepnglogos.com/uploads/android-logo-png/android-logo-0.png"
-                        alt="Get it on Google Play" />
-                </a>
-                <a href="#" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW1EaWd00kzyrSpXF71xEyAdooRHcJuM248g&s"
-                        alt="Download on the App Store" />
-                </a>
+                <a href="#"><img src="https://www.freepnglogos.com/uploads/android-logo-png/android-logo-0.png"
+                        alt="Google Play" /></a>
+                <a href="#"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW1EaWd00kzyrSpXF71xEyAdooRHcJuM248g&s"
+                        alt="App Store" /></a>
             </div>
         </nav>
     </header>
@@ -1095,48 +1123,46 @@
 
         <!-- contact section  -->
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-title">
-                    <h2 style=" color: rgb(37, 173, 222);">Contact</h2>
-                    <p>We believe that it doesn’t cost a thing to talk, so why not get in touch with us and begin this
-                        awesome journey. Get answers before you buy.</p>
+        <section class="contact">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>We believe that it doesn’t cost a thing to talk, so why not get in touch with us and begin this
+                    awesome journey. Get answers before you buy.</p>
+            </div>
+
+            <div class="contact-row">
+                <!-- Left Column -->
+                <div class="contact-left">
+                    <div class="contact-box">
+                        <i class="icon">&#128205;</i>
+                        <h4>ADDRESS</h4>
+                        <p>Johar Town 2, Lahore,<br>Pakistan</p>
+                    </div>
+                    <div class="contact-box">
+                        <i class="icon">&#9993;</i>
+                        <h4>EMAIL US</h4>
+                        <p><a href="mailto:houzi@booleanbites.com">houzi@booleanbites.com</a></p>
+                    </div>
                 </div>
 
-                <div class="contact-row">
-                    <!-- Left side: Address + Email -->
-                    <div class="contact-left">
-                        <div class="box1">
-                            <h4>Address</h4>
-                            <p>Johar Town 2, Lahore, Pakistan</p>
+                <!-- Right Column -->
+                <div class="contact-right">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name">
                         </div>
-                        <div class="box2">
-                            <h4>Email</h4>
-                            <p><a href="mailto:houzi@booleanbites.com">houzi@booleanbites.com</a></p>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
                         </div>
-                    </div>
-
-                    <!-- Right side: Form -->
-                    <div class="contact-right">
-                        <form>
-                            <div class="form-group">
-                                <input placeholder="Your Name" type="text" name="name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <input placeholder="Your Email" type="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea placeholder="Message" name="message" rows="6" class="form-control"
-                                    required></textarea>
-                            </div>
-                            <div class="text-center">
-                                <button class="my-btn-lightgreen">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Message" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn-send">Send Message</button>
+                    </form>
                 </div>
             </div>
         </section>
+
 
 
     </main>

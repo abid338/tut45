@@ -5,131 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .features-section {
-    padding: 50px;
-    background-color: #f5f5f5;
-    font-family: sans-serif;
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
+body {
+    font-family: Arial, sans-serif;
 }
 
-.section-title h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.section-title p {
-    color: #666;
-    font-size: 16px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.features-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.feature-box {
+/* ===== Header ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 280px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
-.feature-box:hover {
-    transform: translateY(-8px);
-}
-
-.feature-box img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border-radius: 50%;
-}
-
-.feature-box h4 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.feature-box p {
-    font-size: 14px;
-    color: #666;
-}
-
-/* Details Section */
-.details {
-    padding: 40px;
-    background: #f9f9f9;
-}
-
-.detail-row {
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Header space */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 30px;
-    margin-bottom: 60px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
 }
 
-.detail-row.reverse {
-    flex-direction: row-reverse;
+.hero-text {
+    flex: 1;
 }
 
-.detail-row img {
-    width: 300px;
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.hero-text .btn {
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
-.detail-text {
-    flex: 1;
-}
-
-.detail-text h3,
-.detail-text h4 {
-    margin: 10px 0;
-    color: #333;
-}
-
-.detail-text p {
-    margin-bottom: 10px;
-    color: #555;
-}
-
-/* Mobile Responsive */
+/* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
-    .features-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature-box {
-        width: 90%;
-        max-width: 350px;
-    }
-
-    .detail-row,
-    .detail-row.reverse {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .detail-row img {
-        width: 100%;
-        max-width: 350px;
-        margin-bottom: 20px;
-    }
-
-    .detail-text {
+    .hero-content {
+        flex-direction: column-reverse;
         text-align: center;
     }
 }
@@ -137,110 +111,28 @@
     </style>
 </head>
 <body>
-    <section id="features" class="features">
-    <div class="container">
-        <div class="text-box">
-            <h3>How does this work?</h3>
-            <p>Houzi is a Flutter app for Houzez real estate Wordpress Theme, available for Android and iOS.<br>Houzi
-                together with Houzez offers you full scaled real estate solution for web and mobile.</p>
-            <button class="my-btn-lightpink">Read More</button>
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">My Logo</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Welcome to My Website</h1>
+            <p>This is a responsive hero section example.</p>
+            <a href="#" class="btn">Get Started</a>
         </div>
-
-        <!-- App Features -->
-        <section class="features-section">
-            <div class="section-title">
-                <h2>App Features</h2>
-                <p>A perfect compliment to your Houzez website, Houzi is a super flexible and powerful mobile
-                    app with top-notch features for real estate agents and companies.</p>
-            </div>
-
-            <div class="features-container">
-                <div class="feature-box">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQVZnlCDYR45q-E12jPgGxLc5EMo1j6xjSVA&s" alt="">
-                    <h4>Compatible with Houzez</h4>
-                    <p>Fully compatible and integrates with Houzez theme</p>
-                </div>
-
-                <div class="feature-box">
-                    <img src="https://t4.ftcdn.net/jpg/05/40/16/51/360_F_540165188_147RBdJLAfRClWTGiSyAKi3zyxwFqNuJ.jpg" alt="">
-                    <h4>Great Performance</h4>
-                    <p>Top quality app with slick design, highly customizable theme and optimized code</p>
-                </div>
-
-                <div class="feature-box">
-                    <img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_a6514b5290f4054b89cd6185a9ae2a03/enrich.png" alt="">
-                    <h4>Features Enrich</h4>
-                    <p>Don't worry about future costs, pay once and receive all future updates at no extra cost</p>
-                </div>
-
-                <div class="feature-box">
-                    <img src="https://png.pngtree.com/element_our/20200610/ourmid/pngtree-update-arrow-image_2239521.jpg" alt="">
-                    <h4>Free Updates</h4>
-                    <p>Pay once and receive all future updates at no extra cost</p>
-                </div>
-
-                <div class="feature-box">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKPwub4urwJe62K5g-eylWbd__Y6zq2XWjAQ&s" alt="">
-                    <h4>Houzez CRM</h4>
-                    <p>Track Activities, follow Leads, reply to Enquiries and close Deals from your app.</p>
-                </div>
-
-                <div class="feature-box">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQvnjByRZZd5dba3RyUL7kr6R_XRpgcz9xcw&s" alt="">
-                    <h4>Translation Ready</h4>
-                    <p>Fully RTL supported, available in English, French, Arabic, Russian, Turkish and more.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Details Section -->
-        <section id="details" class="details">
-            <div class="detail-row">
-                <img src="https://thumbs.dreamstime.com/b/man-holds-red-house-roll-dollars-over-word-assets-declaration-income-taxation-audit-ownership-man-holds-159601765.jpg" alt="">
-                <div class="detail-text">
-                    <h4>Powerful search and filters</h4>
-                    <p>Houzi comes with advance search system with various modern features like geo location
-                        based radius search, city, area and type based searches.</p>
-                    <p>It contains advanced filter options based on prices, area size, bedrooms and bathrooms
-                        counts. User can save searches, get alerts for a search criteria.</p>
-                </div>
-            </div>
-
-            <div class="detail-row reverse">
-                <img src="https://www.shutterstock.com/image-photo/finance-banking-investment-asset-allocation-600nw-2467052941.jpg" alt="">
-                <div class="detail-text">
-                    <h3>Listing Result Pages</h3>
-                    <p>Houzi comes with multiple pre-designed gorgeous result item that you can choose to show
-                        in list.</p>
-                    <p>Listing can be filtered with different parameters or reordered by pricing or dates. All
-                        listing can also be browsed on map and carousel.</p>
-                </div>
-            </div>
-
-            <div class="detail-row">
-                <img src="https://thumbs.dreamstime.com/b/assets-vs-liabilities-net-worth-financial-value-55631543.jpg" alt="">
-                <div class="detail-text">
-                    <h3>Property detail page</h3>
-                    <p>Information enriched, fully featured property details page contains every relevant modern
-                        details widgets. A page that consist of photos gallery, property features section, description,
-                        prices, agent or agency info, maps, ratings and reviews.</p>
-                    <p>Customer can also schedule visits and inquire about property via contact form.</p>
-                </div>
-            </div>
-
-            <div class="detail-row reverse">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a1c6uiURj-M0cO49JBv-znwBA-lBzO7hyA&s" alt="">
-                <div class="detail-text">
-                    <h3>Flexible and Powerful</h3>
-                    <p>Houzi is a super flexible and powerful mobile app with top-notch features for real estate
-                        agents and companies.</p>
-                    <p>It comes with slick design, awesome UI/UX, multiple styling options, gorgeous typography
-                        and highly customizable features.</p>
-                    <button class="my-btn-lightgray">AppleStore</button>
-                    <button class="my-btn-lightpink">Buy Now</button>
-                </div>
-            </div>
-        </section>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/400" alt="Hero Image">
+        </div>
     </div>
 </section>
 
