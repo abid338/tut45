@@ -1,1051 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOUZI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Section</title>
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            padding: 50px 0;
         }
 
-        /* header section  */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1200;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            flex-wrap: wrap;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            margin-right: 20px;
-        }
-
-        .logo-section img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo-section h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .navlinks {
-            display: flex;
-            gap: 15px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex-wrap: wrap;
-        }
-
-        .navlinks li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 300;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-
-        .navlinks li a:hover {
-            color: #007bff;
-        }
-
-        .store-icons {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .store-icons img {
-            height: 30px;
-        }
-
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 10px;
-            }
-            
-            .logo-section {
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-            
-            .navlinks {
-                justify-content: center;
-                margin-bottom: 10px;
-                gap: 10px;
-            }
-            
-            .navlinks li a {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* hero section  */
-        #hero {
-            background-color: #f5f5f5;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            gap: 30px;
-        }
-
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .hero-text p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: center;
-            min-width: 250px;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        /* Button Styles */
-        .btn {
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin: 5px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .my-btn-lightgray {
-            background-color: gray;
-            color: white;
-        }
-
-        .my-btn-lightgray:hover {
-            background-color: black;
-        }
-
-        .my-btn-lightgreen {
-            background-color: limegreen;
-            color: white;
-        }
-
-        .my-btn-lightgreen:hover {
-            background-color: green;
-        }
-
-        .my-btn-lightpink {
-            background-color: palevioletred;
-            color: white;
-        }
-
-        .my-btn-lightpink:hover {
-            background-color: skyblue;
-        }
-
-        /* Mobile Hero Layout */
-        @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-text {
-                order: 2;
-                min-width: auto;
-            }
-            
-            .hero-image {
-                order: 1;
-                margin-bottom: 20px;
-            }
-        }
-
-        /* Text Box */
-        .text-box {
-            background-color: lightgray;
-            padding: 30px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 1200px;
-            margin: 40px auto;
-            text-align: center;
-        }
-
-        .text-box h3 {
-            margin-bottom: 15px;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-        }
-
-        .text-box p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        /* Features Section */
-        .features-section {
-            padding: 50px 20px;
-            background-color: #f5f5f5;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-title h2 {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: #666;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            line-height: 1.6;
-        }
-
-        .features-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        .skills-section {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .feature-box {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-8px);
-        }
-
-        .feature-box img {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border-radius: 50%;
-        }
-
-        .feature-box h4 {
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 1.1rem;
-        }
-
-        .feature-box p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        /* Details Section */
-        .details {
-            padding: 60px 20px;
-            background: #f9f9f9;
-        }
-
-        .detail-row {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 60px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .detail-row.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .detail-row img {
-            width: 100%;
-            max-width: 350px;
-            height: auto;
-            border-radius: 10px;
-            flex-shrink: 0;
-        }
-
-        .detail-text {
-            flex: 1;
-        }
-
-        .detail-text h3,
-        .detail-text h4 {
-            margin: 10px 0;
-            color: #333;
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-        }
-
-        .detail-text p {
-            margin-bottom: 15px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .detail-row,
-            .detail-row.reverse {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .detail-row img {
-                max-width: 100%;
-            }
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 60px 20px;
-            background: #f8f8f8;
-            text-align: center;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
-
-        .gallery .section-title {
-            margin-bottom: 40px;
-        }
-
-        .slider-wrapper {
-            max-width: 100%;
-            overflow: hidden; /* Hide overflow from container */
-        }
-
-        .slider-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            gap: 20px;
-            padding: 20px 10px 20px 0;
-            -webkit-overflow-scrolling: touch;
-            margin-right: -20px; /* Offset the padding to prevent overflow */
-        }
-
-        .slider-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .slider-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .slider-container::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-
-        .slide {
-            min-width: 250px;
-            flex-shrink: 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            transition: transform 0.3s;
-        }
-
-        .slide:hover {
-            transform: scale(1.05);
-        }
-
-        .slide img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .slide p {
-            margin-top: 10px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        /* Pricing Section */
-        #pricing {
-            background: #f9f9f9;
-            padding: 60px 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        .pricing .section-title {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-        }
-
-        .pricing .section-title h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            text-align: center;
-
-
-        }
-
-        .pricing .section-title p {
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: #555;
-            text-align: center;
-
-        }
-
-        .pricing .container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            /* spacing between boxes */
-            align-items: stretch;
-
-        }
-
-        .box,
-        .pro-box {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            flex: 1 1 calc(50% - 20px);
-
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-
-        }
-
-        .box h3,
-        .pro-box h3 {
-            margin-bottom: 10px;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .box h4,
-        .pro-box h4 {
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: #27ae60;
-        }
-
-        .box h4 span,
-        .pro-box h4 span {
-            display: block;
-            font-size: 14px;
-            color: #888;
-        }
-
-        .box ul li,
-        .pro-box ul li {
+            padding: 0 20px;
             position: relative;
-            padding-left: 28px;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            color: #444;
         }
 
-        .box ul li::before,
-        .pro-box ul li::before {
-            content: "✅";
+        .skills-bg-text {
             position: absolute;
-            left: 0;
-            top: 2px;
-            font-size: 16px;
-            color: #27ae60;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 200px;
+            font-weight: bold;
+            color: #f0f0f0;
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
         }
 
-
-
-        .section-bg {
-            background: #e8f5e9;
-            margin-top: 50px;
-            padding: 30px;
-            border-radius: 12px;
+        .skills-title {
             text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #2dd4bf;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
         }
 
-        .section-bg h4 a {
-            color: #27ae60;
-            text-decoration: underline;
-        }
-        @media (max-width: 767px) {
-            .pricing .container {
-                flex-direction: column;
-            }
-
-            .box,
-            .pro-box {
-                flex: 1 1 100%;
-            }
-        }
-
-
-
-        /* Contact Section */
-        .contact {
-            padding: 60px 15px; /* Reduced side padding */
-            background-color: #f4f4f4;
-            overflow-x: hidden; /* Prevent horizontal overflow */
-        }
-
-        .contact-row {
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Reduced min width */
-            gap: 20px; /* Reduced gap */
-            max-width: 1200px;
-            margin: 0 auto; /* Center the container */
-            justify-items: center; /* Center align grid items */
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
         }
 
-        .contact-left,
-        .contact-right {
-            background: #fff;
-            padding: 25px; /* Slightly reduced padding */
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            width: 100%; /* Full width of grid cell */
-            max-width: 400px; /* Maximum width limit */
+        .skill-item {
+            margin-bottom: 40px;
         }
 
-        .box1,
-        .box2 {
-            background: lightgray;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-
-        .box1 h4,
-        .box2 h4 {
-            margin: 0 0 10px 0;
-            color: #333;
-        }
-
-        .box1 p,
-        .box2 p {
-            margin: 0;
-        }
-
-        .box2 a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* Footer */
-        #footer {
-            background-color: #222;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .footer-top .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .footer-top h3 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
         }
 
-        .footer-top p {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #ccc;
-            margin-bottom: 20px;
+        .skill-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
         }
 
-        .footer-top a {
-            color: #00cec9;
-            text-decoration: none;
+        .skill-percentage {
+            font-size: 18px;
+            font-weight: 600;
+            color: #666;
         }
 
-        .footer-top a:hover {
-            text-decoration: underline;
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* Mobile responsive adjustments */
+        .progress-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 2s ease-in-out;
+            animation: fillBar 2s ease-in-out;
+        }
+
+        @keyframes fillBar {
+            from {
+                width: 0%;
+            }
+        }
+
+        /* Individual skill colors */
+        .skill-html .progress-fill {
+            background-color: #2dd4bf;
+            width: 95%;
+        }
+
+        .skill-css .progress-fill {
+            background-color: #fbbf24;
+            width: 85%;
+        }
+
+        .skill-php .progress-fill {
+            background-color: #ef4444;
+            width: 90%;
+        }
+
+        .skill-javascript .progress-fill {
+            background-color: #ef4444;
+            width: 90%;
+        }
+
+        .skill-angular .progress-fill {
+            background-color: #374151;
+            width: 95%;
+        }
+
+        .skill-wordpress .progress-fill {
+            background-color: #2dd4bf;
+            width: 85%;
+        }
+
         @media (max-width: 768px) {
-            .features-section {
-                padding: 30px 10px;
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
-            .features-container {
-                grid-template-columns: 1fr; /* Single column on mobile */
-                gap: 15px;
-                padding: 0 10px;
+            .skills-title {
+                font-size: 36px;
+                margin-bottom: 60px;
             }
             
-            .feature-box {
-                max-width: 100%;
-                margin: 0 auto;
-            }
-            
-            #pricing {
-                padding: 20px 10px;
-            }
-            
-            .pricing-container {
-                grid-template-columns: 1fr; /* Single column on mobile */
-                gap: 15px;
-                padding: 0 10px;
-            }
-            
-            .contact {
-                padding: 40px 10px;
-            }
-            
-            .contact-row {
-                grid-template-columns: 1fr; /* Single column on mobile */
-                gap: 15px;
-                padding: 0 10px;
+            .skills-bg-text {
+                font-size: 120px;
             }
         }
 
-        /* Responsive adjustments */
         @media (max-width: 480px) {
-            .navbar {
-                padding: 10px;
+            .skills-title {
+                font-size: 28px;
             }
             
-            .btn {
-                padding: 10px 16px;
-                font-size: 0.8rem;
-                margin: 3px;
+            .skills-bg-text {
+                font-size: 80px;
             }
             
-            .text-box {
-                padding: 20px 15px;
-                margin: 20px 10px;
-            }
-            
-            .features-section {
-                padding: 30px 15px;
-            }
-            
-            .details {
-                padding: 40px 15px;
-            }
-            
-            .contact,
-            .gallery,
-            #pricing {
-                padding: 40px 15px;
+            .skill-name,
+            .skill-percentage {
+                font-size: 16px;
             }
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <nav class="navbar">
-            <!-- Left: Logo and Name -->
-            <div class="logo-section">
-                <img src="https://www.citypng.com/public/uploads/preview/hd-creative-graphic-flame-fire-logo-icon-png-701751694778396g9o3vwpdzr.png" alt="logo" />
-                <h1>Houzi</h1>
-            </div>
-
-            <!-- Center: Navigation Links -->
-            <ul class="navlinks">
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#App">App</a></li>
-                <li><a href="#Gallery">Gallery</a></li>
-                <li><a href="#Pricing">Pricing</a></li>
-                <li><a href="#Contact">Contact</a></li>
-                <li><a href="#Docs">Docs</a></li>
-            </ul>
-
-            <!-- Right: Android & Apple Store Icons -->
-            <div class="store-icons">
-                <a href="#" target="_blank">
-                    <img src="https://www.freepnglogos.com/uploads/android-logo-png/android-logo-0.png" alt="Get it on Google Play" />
-                </a>
-                <a href="#" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW1EaWd00kzyrSpXF71xEyAdooRHcJuM248g&s" alt="Download on the App Store" />
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero section -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Houzi Real Estate App</h1>
-                    <p>Real estate app for Houzez websites</p>
-                    <button class="btn my-btn-lightgray">App Store</button>
-                    <button class="btn my-btn-lightgray">Google Play</button>
-                    <br>
-                    <button class="btn my-btn-lightpink">Buy on CodeCanyon</button>
+    <section class="skills-section">
+        <div class="skills-bg-text">SKILLS</div>
+        
+        <h2 class="skills-title">MY SKILLS</h2>
+        
+        <div class="skills-container">
+            <div class="skills-column">
+                <div class="skill-item skill-html">
+                    <div class="skill-header">
+                        <span class="skill-name">HTML</span>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzSUvx4WsygqN8qJdZ7bNRNI1YEpHZH484Og&s" alt="Houzi App Screenshot" />
+                
+                <div class="skill-item skill-css">
+                    <div class="skill-header">
+                        <span class="skill-name">CSS</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item skill-php">
+                    <div class="skill-header">
+                        <span class="skill-name">PHP</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-column">
+                <div class="skill-item skill-javascript">
+                    <div class="skill-header">
+                        <span class="skill-name">Javascript</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item skill-angular">
+                    <div class="skill-header">
+                        <span class="skill-name">Angular JS</span>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item skill-wordpress">
+                    <div class="skill-header">
+                        <span class="skill-name">Wordpress</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <main id="main">
-        <!-- Features section  -->
-        <section id="features" class="features">
-            <div class="container">
-                <div class="text-box">
-                    <h3>How does this work?</h3>
-                    <p>Houzi is a Flutter app for Houzez real estate WordPress Theme, available for Android and iOS.<br>Houzi together with Houzez offers you full scaled real estate solution for web and mobile.</p>
-                    <button class="btn my-btn-lightpink">Read More</button>
-                </div>
+    <script>
+        // Add intersection observer for animation on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-                <section class="features-section">
-                    <div class="section-title">
-                        <h2>App Features</h2>
-                        <p>A perfect complement to your Houzez website, Houzi is a super flexible and powerful mobile app with top-notch features for real estate agents and companies.</p>
-                    </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        bar.style.animationPlayState = 'running';
+                    });
+                }
+            });
+        }, observerOptions);
 
-                    <div class="features-container">
-                        <div class="feature-box">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQVZnlCDYR45q-E12jPgGxLc5EMo1j6xjSVA&s" alt="Compatible with Houzez">
-                            <h4>Compatible with Houzez</h4>
-                            <p>Fully compatible and integrates with Houzez theme</p>
-                        </div>
-
-                        <div class="feature-box">
-                            <img src="https://t4.ftcdn.net/jpg/05/40/16/51/360_F_540165188_147RBdJLAfRClWTGiSyAKi3zyxwFqNuJ.jpg" alt="Great Performance">
-                            <h4>Great Performance</h4>
-                            <p>Top quality app with slick design, highly customizable theme and optimized code</p>
-                        </div>
-
-                        <div class="feature-box">
-                            <img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_a6514b5290f4054b89cd6185a9ae2a03/enrich.png" alt="Features Enrich">
-                            <h4>Features Enrich</h4>
-                            <p>Don't worry about future costs, pay once and receive all future updates at no extra cost</p>
-                        </div>
-
-                        <div class="feature-box">
-                            <img src="https://png.pngtree.com/element_our/20200610/ourmid/pngtree-update-arrow-image_2239521.jpg" alt="Free Updates">
-                            <h4>Free Updates</h4>
-                            <p>Pay once and receive all future updates at no extra cost</p>
-                        </div>
-
-                        <div class="feature-box">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKPwub4urwJe62K5g-eylWbd__Y6zq2XWjAQ&s" alt="Houzez CRM">
-                            <h4>Houzez CRM</h4>
-                            <p>Track Activities, follow Leads, reply to Enquiries and close Deals from your app.</p>
-                        </div>
-
-                        <div class="feature-box">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQvnjByRZZd5dba3RyUL7kr6R_XRpgcz9xcw&s" alt="Translation Ready">
-                            <h4>Translation Ready</h4>
-                            <p>Fully RTL supported, available in English, French, Arabic, Russian, Turkish and more.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Details Section  -->
-                <section id="details" class="details">
-                    <div class="detail-row">
-                        <img src="https://thumbs.dreamstime.com/b/man-holds-red-house-roll-dollars-over-word-assets-declaration-income-taxation-audit-ownership-man-holds-159601765.jpg" alt="Powerful search">
-                        <div class="detail-text">
-                            <h4>Powerful search and filters</h4>
-                            <p>Houzi comes with advance search system with various modern features like geo location based radius search, city, area and type based searches.</p>
-                            <p>It contains advanced filter options based on prices, area size, bedrooms and bathrooms counts. User can save searches, get alerts for a search criteria.</p>
-                        </div>
-                    </div>
-
-                    <div class="detail-row reverse">
-                        <img src="https://www.shutterstock.com/image-photo/finance-banking-investment-asset-allocation-600nw-2467052941.jpg" alt="Listing Results">
-                        <div class="detail-text">
-                            <h3>Listing Result Pages</h3>
-                            <p>Houzi comes with multiple pre-designed gorgeous result item that you can choose to show in list.</p>
-                            <p>Listing can be filtered with different parameters or reordered by pricing or dates. All listing can also be browsed on map and carousel.</p>
-                        </div>
-                    </div>
-
-                    <div class="detail-row">
-                        <img src="https://thumbs.dreamstime.com/b/assets-vs-liabilities-net-worth-financial-value-55631543.jpg" alt="Property details">
-                        <div class="detail-text">
-                            <h3>Property detail page</h3>
-                            <p>Information enriched, fully featured property details page contains every relevant modern details widgets. A page that consist of photos gallery, property features section, description, prices, agent or agency info, maps, ratings and reviews.</p>
-                            <p>Customer can also schedule visits and inquire about property via contact form.</p>
-                        </div>
-                    </div>
-
-                    <div class="detail-row reverse">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a1c6uiURj-M0cO49JBv-znwBA-lBzO7hyA&s" alt="Flexible and Powerful">
-                        <div class="detail-text">
-                            <h3>Flexible and Powerful</h3>
-                            <p>Houzi is a super flexible and powerful mobile app with top-notch features for real estate agents and companies.</p>
-                            <p>It comes with slick design, awesome UI/UX, multiple styling options, gorgeous typography and highly customizable features.</p>
-                            <button class="btn my-btn-lightgray">App Store</button>
-                            <button class="btn my-btn-lightpink">Buy Now</button>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Gallery Section  -->
-                <section id="gallery" class="gallery">
-                    <div class="section-title">
-                        <h2>Gallery</h2>
-                        <p>Houzi is packed with new features that help you connect with your customers. It is an experience that is simpler, more useful and more enjoyable. Take a closer look at beautifully crafted app for your business.</p>
-                    </div>
-                    
-                    <div class="slider-wrapper">
-                        <div class="slider-container">
-                            <div class="slide">
-                                <img src="https://play-lh.googleusercontent.com/pIayScvH1tdhhlmr3C2jiLgkJCKg91p3J73D98rP-huHPC8VALequOuVnBnzWafR-Q=w526-h296-rw" alt="Home">
-                                <p>Home</p>
-                            </div>
-
-                            <div class="slide">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0hM2eJCqrJQ_Vl-MtVJ9aSKyTo8PIvOSOWA&s" alt="Property Page">
-                                <p>Property Page</p>
-                            </div>
-
-                            <div class="slide">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz7wxUilPufgsotQZpKCyja9V-yEYbRL6LhQ&s" alt="Map search">
-                                <p>Map Search</p>
-                            </div>
-
-                            <div class="slide">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHsvY_NGBRoLWS7jD3Vltvt5FmgphDJeJb9A&s" alt="Search Results">
-                                <p>Search Results</p>
-                            </div>
-
-                            <div class="slide">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0hM2eJCqrJQ_Vl-MtVJ9aSKyTo8PIvOSOWA&s" alt="Filters">
-                                <p>Filters</p>
-                            </div>
-
-                            <div class="slide">
-                                <img src="https://play-lh.googleusercontent.com/pIayScvH1tdhhlmr3C2jiLgkJCKg91p3J73D98rP-huHPC8VALequOuVnBnzWafR-Q=w526-h296-rw" alt="Agent Profile">
-                                <p>Agent Profile</p>
-                            </div>
-
-                            <div class="slide">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0hM2eJCqrJQ_Vl-MtVJ9aSKyTo8PIvOSOWA&s" alt="CRM">
-                                <p>CRM</p>
-                            </div>
-
-                            <div class="slide">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz7wxUilPufgsotQZpKCyja9V-yEYbRL6LhQ&s" alt="Add property">
-                                <p>Add Property</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Pricing Section  -->
-                <section id="pricing" class="pricing">
-                    <div class="section-title">
-                        <h2>Pricing</h2>
-                        <p>Get answers before you buy. Checkout the demo version to know the full features offered in the app.</p>
-                    </div>
-                    
-                    <div class="pricing-container">
-                        <div class="box">
-                            <h3>Buy Houzi</h3>
-                            <h4>$59 <span>One license</span></h4>
-                            <ul>
-                                <li>Flutter App Source Code</li>
-                                <li>Dynamic home sections with many item design</li>
-                                <li>Advanced Search Filters</li>
-                                <li>Comprehensive property profile</li>
-                                <li>Property Images gallery</li>
-                                <li>Agent and Agency list & profiles</li>
-                                <li>Reviews for property & agencies</li>
-                                <li>Saved searches and get push notifications</li>
-                                <li>Map view for property listing</li>
-                                <li>Push notifications</li>
-                                <li>Membership packages via in-app-purchase</li>
-                                <li>Add property (quick and detailed) from app</li>
-                                <li>CRM: Leads, Activity, Inquiries, Deals dashboard</li>
-                                <li>Social login with Facebook, Google and Apple</li>
-                                <li>Admob integration ready</li>
-                                <li>RTL supported, ready to translate</li>
-                                <li>Available in EN, ES, FR, RU, AR, TU & more</li>
-                            </ul>
-                            <button class="btn my-btn-lightpink">Buy on CodeCanyon</button>
-                        </div>
-
-                        <div class="pro-box">
-                            <h3>Hire us to publish your App</h3>
-                            <h4>$699 <span>Android iPhone Apps</span></h4>
-                            <ul>
-                                <li>Buy Houzi from <a href="https://codecanyon.net/item/houzi-real-estate-app/39753350" target="_blank">CodeCanyon</a></li>
-                                <li>Provide icon, firebase and store access</li>
-                                <li>Few details, description and tagline</li>
-                                <br>
-                                <li>We'll do:</li>
-                                <li>Rebrand with your logo and colors</li>
-                                <li>Firebase, Google Cloud setup</li>
-                                <li>Social login, phone signup integration</li>
-                                <li>Push notifications and deep-links setup</li>
-                                <li>Configure in-app purchases for membership</li>
-                                <li>Apps published to AppStore and GooglePlay</li>
-                                <li>Post-launch care: 30 days reliability support</li>
-                                <li>Source Code Ownership of approved app</li>
-                            </ul>
-                            <button class="btn my-btn-lightpink">Hire us on Upwork</button>
-                            <button class="btn my-btn-lightgray">Hire us on Fiverr</button>
-                            
-                            <h3 style="margin-top: 30px;">Custom Features</h3>
-                            <p>If you have any feature or requirements that you want exclusively in your app, contact us and our excellent team will make sure to exceed your expectation</p>
-                            <button class="btn my-btn-lightgray">Contact Us</button>
-                        </div>
-
-                        <div class="section-bg">
-                            <h4>Houzi is an app that powers your Houzez based website. It has intuitive, clean and slick UI, that offers great user experience. For more info you can reach the team at <a href="mailto:houzi@booleanbites.com">houzi@booleanbites.com</a></h4>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact Section -->
-                <section id="contact" class="contact">
-                    <div class="section-title">
-                        <h2>Contact</h2>
-                        <p>We believe that it doesn't cost a thing to talk, so why not get in touch with us and begin this awesome journey. Get answers before you buy.</p>
-                    </div>
-
-                    <div class="contact-row">
-                        <!-- Left side: Address + Email -->
-                        <div class="contact-left">
-                            <div class="box1">
-                                <h4>Address</h4>
-                                <p>Johar Town 2, Lahore, Pakistan</p>
-                            </div>
-                            <div class="box2">
-                                <h4>Email</h4>
-                                <p><a href="mailto:houzi@booleanbites.com">houzi@booleanbites.com</a></p>
-                            </div>
-                        </div>
-
-                        <!-- Right side: Form -->
-                        <div class="contact-right">
-                            <form>
-                                <div class="form-group">
-                                    <input placeholder="Your Name" type="text" name="name" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <input placeholder="Your Email" type="email" name="email" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <textarea placeholder="Message" name="message" class="form-control" required></textarea>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn my-btn-lightgreen">Send Message</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <h3>Houzi</h3>
-                <p>A perfect complement to your Houzez website, Houzi is a super flexible and powerful mobile app with top-notch features for real estate agents and companies. For more info you can reach the team at<br>
-                <strong>Email:</strong> <a href="mailto:houzi@booleanbites.com">houzi@booleanbites.com</a></p>
-                <div style="margin: 20px 0;">
-                    <button class="btn my-btn-lightgray">App Store</button>
-                    <button class="btn my-btn-lightpink">Google Play</button>
-                </div>
-                <p>&copy; Copyright 2021 <a href="https://booleanbites.com/">BooleanBite Ltd. Pakistan</a>. All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
+        // Observe the skills section
+        const skillsSection = document.querySelector('.skills-section');
+        observer.observe(skillsSection);
+    </script>
 </body>
-
-</html>
+</html> 

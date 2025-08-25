@@ -1,311 +1,813 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hafiz Abdullah — Web Developer & Qur'an Teacher</title>
-  <meta name="description" content="Portfolio of Hafiz Abdullah — Frontend developer (HTML & CSS) and online Qur'an teacher offering responsive landing pages and personalized classes." />
-  <meta name="theme-color" content="#0ea5e9" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <style>
-    :root {
-      --bg: #0b1220;
-      --card: #111827;
-      --soft: #1f2937;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --brand: #0ea5e9; /* sky-500 */
-      --accent: #22c55e; /* green-500 */
-      --ring: rgba(14,165,233,.4);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    /* Light mode */
-    .light {
-      --bg: #ffffff;
-      --card: #ffffff;
-      --soft: #f3f4f6;
-      --text: #0f172a;
-      --muted: #475569;
-      --ring: rgba(14,165,233,.3);
-      --shadow: 0 8px 24px rgba(2,6,23,.08);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box }
-    html { scroll-behavior: smooth }
     body {
-      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--bg); color: var(--text); line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
-    .container { width: min(1100px, 92%); margin: 0 auto }
-    .grid { display: grid; gap: 1.25rem }
-    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.1rem; border-radius: .9rem; text-decoration: none; font-weight: 600; border: 1px solid transparent }
-    .btn-primary { background: var(--brand); color: #031019; box-shadow: var(--shadow) }
-    .btn-ghost { background: transparent; border-color: rgba(148,163,184,.25); color: var(--text) }
-    .btn-success { background: var(--accent); color: #052e15 }
-    .btn:hover { transform: translateY(-1px) }
-
-    header.nav {
-      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
-      background: color-mix(in oklab, var(--bg), #000 10% / 70%);
-      border-bottom: 1px solid rgba(148,163,184,.15);
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px }
-    .brand { display: flex; gap: .6rem; align-items: center; font-weight: 800; letter-spacing: .3px }
-    .brand .logo { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: radial-gradient(60% 60% at 30% 20%, #7dd3fc, #0369a1); box-shadow: var(--shadow) }
-    .brand span { font-size: 1.05rem }
-    nav a { color: var(--text); text-decoration: none; opacity: .8; padding: .4rem .6rem; border-radius: .6rem }
-    nav a:hover, nav a.active { opacity: 1; background: rgba(148,163,184,.12) }
 
-    .theme-toggle { border: 1px solid rgba(148,163,184,.25); background: var(--card); color: var(--text); width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center }
+    /* Navbar styling */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+    }
 
-    /* Hero */
-    .hero { padding: 72px 0 40px; }
-    .hero-wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center }
-    .hero h1 { font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem); line-height: 1.2; margin: 0 0 .7rem }
-    .hero p { color: var(--muted); margin: 0 0 1.2rem }
-    .badge { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .6rem; border-radius: .6rem; font-size: .86rem; border: 1px solid rgba(148,163,184,.25); background: var(--card); color: var(--muted) }
-    .hero-card { background: var(--card); border: 1px solid rgba(148,163,184,.15); border-radius: 1.2rem; padding: 1rem; box-shadow: var(--shadow) }
-    .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin-top: .8rem }
-    .kpis .k { background: var(--soft); border-radius: .9rem; padding: .9rem; text-align: center }
-    .k .num { font-size: 1.2rem; font-weight: 800 }
-    .k .lbl { color: var(--muted); font-size: .82rem }
+    /* Logo */
+    .logo-section h1 {
+      margin-left: 10px;
+      font-size: 24px;
+      color: #20B2AA;
+    }
 
-    /* Sections */
-    section { padding: 56px 0 }
-    .section-title { font-size: 1.4rem; margin: 0 0 .8rem }
-    .muted { color: var(--muted) }
+    /* Navlinks */
+    .navlinks {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 10px;
+    }
 
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem }
-    .card { background: var(--card); border: 1px solid rgba(148,163,184,.15); border-radius: 1rem; padding: 1rem; box-shadow: var(--shadow) }
-    .card h3 { margin: .2rem 0 .4rem; font-size: 1.05rem }
+    .navlinks li a {
+      display: inline-block;
+      color: black;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
 
-    /* Projects */
-    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem }
-    .proj { border-radius: 1rem; overflow: hidden; border: 1px solid rgba(148,163,184,.15); background: var(--card); display: flex; flex-direction: column }
-    .proj .thumb { aspect-ratio: 16/10; background: linear-gradient(135deg, #1f2937, #0ea5e910) }
-    .proj .body { padding: .9rem }
-    .proj .tags { display: flex; gap: .4rem; flex-wrap: wrap }
-    .tag { font-size: .75rem; padding: .2rem .5rem; border: 1px solid rgba(148,163,184,.25); border-radius: .6rem; color: var(--muted) }
+    .navlinks li a:hover {
+      color: #20B2AA !important;
+    }
 
-    /* Contact */
-    .contact { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1rem }
-    .form { background: var(--card); border: 1px solid rgba(148,163,184,.15); border-radius: 1rem; padding: 1rem; box-shadow: var(--shadow) }
-    .field { display: grid; gap: .3rem; margin-bottom: .8rem }
-    .field input, .field textarea { width: 100%; padding: .8rem; border-radius: .7rem; border: 1px solid rgba(148,163,184,.25); background: var(--soft); color: var(--text) }
-    .field input:focus, .field textarea:focus { outline: 2px solid var(--ring); border-color: transparent }
+    /* Button */
+    .button button {
+      background: transparent;
+      border: 2px solid #20B2AA;
+      color: #20B2AA;
+      padding: 6px 8px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      width: 100%;
+    }
 
-    footer { padding: 40px 0; color: var(--muted); border-top: 1px solid rgba(148,163,184,.15) }
+    .button button:hover {
+      background: #20B2AA;
+      color: white;
+    }
 
     /* Responsive */
-    @media (max-width: 980px) {
-      .hero-wrap, .contact { grid-template-columns: 1fr }
-      .projects, .cards { grid-template-columns: repeat(2, 1fr) }
+    @media (max-width: 992px) {
+      .navlinks {
+        gap: 12px;
+        font-size: 14px;
+      }
     }
-    @media (max-width: 640px) {
-      .kpis { grid-template-columns: 1fr 1fr }
-      .projects, .cards { grid-template-columns: 1fr }
-      .nav-right { display:none }
+
+    @media (max-width: 768px) {
+      .navlinks {
+        display: none;
+      }
+
+      .button {
+        margin-left: auto;
+      }
+    }
+
+    /* hero section  */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10%;
+      gap: 50px;
+      height: 100vh;
+      background: #20B2AA;
+      font-family: sans-serif;
+      position: relative;
+    }
+
+    /* Left side circle image */
+    .circle-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Right side text */
+    .hero-right {
+      margin-left: 40px;
+      max-width: 550px;
+    }
+
+    .hero-right h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero-right h1 {
+      font-size: 40px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #fff;
+    }
+
+    .hero-right h4:last-of-type {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 10px 0;
+      color: #eee;
+      line-height: 1.5;
+    }
+
+    /* Buttons */
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: transparent;
+      border: 2px solid white;
+      color: whitesmoke;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: white;
+      color: #20B2AA;
+    }
+
+    /* Play Video Button */
+    .video-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .play-icon {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .play-icon::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 12px solid #20B2AA;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      margin-left: 3px;
+    }
+
+    .video-btn:hover .play-icon {
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translate(-50%, 0);
+      }
+      50% {
+        transform: translate(-50%, 10px);
+      }
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 4rem 0;
+      background: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 2rem;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .section-title-about {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .section-title-about::before {
+      content: 'ABOUT';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8rem;
+      font-weight: 900;
+      color: #f0f0f0;
+      z-index: 1;
+      letter-spacing: 0.2em;
+    }
+
+    .section-title-about h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00d4aa;
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      display: block;
+    }
+
+    .about-content {
+      flex: 0 0 50%;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text {
+      padding: 1rem 0;
+      flex: 0 0 50%;
+    }
+
+    .about-text h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-description {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 4rem;
+      margin-bottom: 2rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: #333;
+      min-width: 80px;
+    }
+
+    .detail-value {
+      color: #666;
+      margin-left: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .about-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.875rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: #00d4aa;
+      color: white;
+      border: 2px solid #00d4aa;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: #00d4aa;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #00d4aa;
+      border: 2px solid #00d4aa;
+    }
+
+    .btn-secondary:hover {
+      background: #00d4aa;
+      color: white;
+    }
+
+    /* ===== QUALITY SECTION - FIXED LAYOUT ===== */
+    .quality-section {
+      padding: 80px 0;
+      background: white;
+      width: 100%;
+    }
+
+    .quality-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    .main-heading-quality {
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .main-heading-quality h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #20c997;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    .main-heading-quality h1::before {
+      content: 'Quality';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8rem;
+      font-weight: 900;
+      color: #f0f0f0;
+      z-index: -1;
+      letter-spacing: 0.2em;
+    }
+
+    .timeline-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      width: 100%;
+    }
+
+    .section-title-education,
+    .section-title-experience {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 50px;
+    }
+
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #20c997;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 50px;
+      margin-bottom: 60px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-icon {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 3px solid #20c997;
+      background: white;
+    }
+
+    .timeline-icon::after {
+      content: '+';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #20c997;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .timeline-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .timeline-subtitle {
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .timeline-date {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .timeline-description {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 1200px) {
+      .quality-container {
+        max-width: 100%;
+        padding: 0 30px;
+      }
+      
+      .timeline-container {
+        gap: 60px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .quality-container {
+        padding: 0 25px;
+      }
+      
+      .timeline-container {
+        gap: 50px;
+      }
+      
+      .main-heading-quality h1 {
+        font-size: 2.2rem;
+        white-space: nowrap;
+      }
+      
+      .main-heading-quality h1::before {
+        font-size: 6rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .quality-section {
+        padding: 60px 0;
+      }
+      
+      .quality-container {
+        padding: 0 20px;
+      }
+      
+      .timeline-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .main-heading-quality h1 {
+        font-size: 2rem;
+        margin-bottom: 60px;
+        white-space: normal;
+      }
+      
+      .main-heading-quality h1::before {
+        font-size: 5rem;
+      }
+      
+      .section-title-education,
+      .section-title-experience {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .quality-container {
+        padding: 0 15px;
+      }
+      
+      .main-heading-quality h1 {
+        font-size: 1.8rem;
+      }
+      
+      .main-heading-quality h1::before {
+        font-size: 4rem;
+      }
+      
+      .timeline-item {
+        padding-left: 40px;
+        margin-bottom: 50px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <div class="logo" aria-hidden="true">🛠️</div>
-        <span>Hafiz Abdullah</span>
-      </a>
-      <div class="nav-right" style="display:flex; align-items:center; gap:.4rem">
-        <nav style="display:flex; gap:.2rem">
-          <a href="#services">Services</a>
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button class="theme-toggle" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+  <header>
+    <nav class="navbar">
+      <div class="logo-section">
+        <h1>FreeFolio</h1>
       </div>
-    </div>
+
+      <ul class="navlinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Quality</a></li>
+        <li><a href="#">Skill</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Review</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="button">
+        <button>Hire Me</button>
+      </div>
+    </nav>
   </header>
 
-  <main id="top" class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <span class="badge">Frontend Developer • Qur'an Teacher</span>
-        <h1>Clean, Responsive Websites & Patient Qur'an Teaching</h1>
-        <p>I design and develop fast, mobile‑friendly landing pages using HTML & CSS, and offer one‑on‑one online Qur'an classes with Tajweed. Based in Pakistan, working worldwide.</p>
-        <div style="display:flex; gap:.6rem; flex-wrap: wrap; margin: 1rem 0 0">
-          <a class="btn btn-primary" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="#projects">See projects</a>
-          <a class="btn btn-success" href="https://wa.me/923063813338" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="kpis">
-          <div class="k"><div class="num">HTML & CSS</div><div class="lbl">Core Skills</div></div>
-          <div class="k"><div class="num">Landing Pages</div><div class="lbl">Business Focus</div></div>
-          <div class="k"><div class="num">Tajweed</div><div class="lbl">Qur'an Classes</div></div>
-        </div>
-        <div style="margin-top: .9rem; font-size: .92rem" class="muted">Available for freelance projects and online classes. Fast communication, on‑time delivery.</div>
+  <!-- hero sectio  -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="circle-img">
+        <img src="https://demo.htmlcodex.com/1331/freelancer-portfolio-template/img/profile.jpg" alt="Profile">
       </div>
     </div>
-  </main>
 
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Services</h2>
-      <p class="muted">Simple, focused offerings to keep things clear and effective.</p>
-      <div class="cards" style="margin-top: .8rem">
-        <div class="card">
-          <div class="badge">HTML & CSS</div>
-          <h3>Responsive Landing Pages</h3>
-          <p>Hand‑coded, lightweight pages that load fast and look great on all devices. Ideal for local businesses and personal brands.</p>
-          <div class="tags" style="margin-top:.6rem; display:flex; gap:.4rem; flex-wrap: wrap">
-            <span class="tag">Responsive</span><span class="tag">Clean code</span><span class="tag">SEO‑friendly</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="badge">Customization</div>
-          <h3>Website Redesign</h3>
-          <p>Refresh outdated layouts, improve readability, and apply consistent branding. Subtle animations for a modern feel.</p>
-          <div class="tags" style="margin-top:.6rem; display:flex; gap:.4rem; flex-wrap: wrap">
-            <span class="tag">Modern UI</span><span class="tag">Accessibility</span><span class="tag">Animations</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="badge">Qur'an</div>
-          <h3>Online Qur'an Teaching</h3>
-          <p>One‑on‑one classes with Tajweed, memorization support, and translation (Urdu). Patient, flexible timing, and progress tracking.</p>
-          <div class="tags" style="margin-top:.6rem; display:flex; gap:.4rem; flex-wrap: wrap">
-            <span class="tag">Tajweed</span><span class="tag">Hifz support</span><span class="tag">Translation</span>
-          </div>
-        </div>
+    <div class="hero-right">
+      <h4>I'm</h4>
+      <h1>KATE WINSLET</h1>
+      <h4>FRONT END DEVELOPER
+        APPS DESIGNER
+        APP DEVELOPER
+        WEB DESIGNER
+        WEB DEVELOPER</h4>
+
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary">Download CV</a>
+        <a href="#" class="video-btn">
+          <div class="play-icon"></div>
+          <span>Play Video</span>
+        </a>
+      </div>
+      <div class="scroll-indicator">
+        <div>⌄</div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <p class="muted">A few small demos. Replace links with your live sites (GitHub Pages/Netlify).</p>
-      <div class="projects" style="margin-top:.8rem">
-        <article class="proj">
-          <div class="thumb" role="img" aria-label="Perfume brand landing thumbnail"></div>
-          <div class="body">
-            <h3>AR Perfumes — Landing Page</h3>
-            <p class="muted">Product cards, WhatsApp order, responsive grid.</p>
-            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
-            <div style="display:flex; gap:.5rem; margin-top:.6rem">
-              <a class="btn btn-ghost" href="#" onclick="alert('Replace with live demo link')">Live</a>
-              <a class="btn btn-ghost" href="#" onclick="alert('Replace with GitHub repo link')">Code</a>
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-container">
+      <div class="section-title-about">
+        <h2>ABOUT ME</h2>
+      </div>
+
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://demo.htmlcodex.com/1331/freelancer-portfolio-template/img/about.jpg" alt="Profile Picture"
+            class="about-img">
+        </div>
+
+        <div class="about-text">
+          <h3>UI/UX Designer & Web Developer</h3>
+          <p class="about-description">
+            Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod.
+            Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit
+            ipsum. Amet dolor stet lorem diam dolor justo et dolor dolor dolor
+          </p>
+
+          <div class="about-details">
+            <div class="detail-item">
+              <span class="detail-label">Name:</span>
+              <span class="detail-value">Kate Winslet</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Birthday:</span>
+              <span class="detail-value">1 April 1990</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Degree:</span>
+              <span class="detail-value">Master</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Experience:</span>
+              <span class="detail-value">10 Years</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Phone:</span>
+              <span class="detail-value">+012 345 6789</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Email:</span>
+              <span class="detail-value">info@example.com</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Address:</span>
+              <span class="detail-value">123 Street, New York, USA</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Freelance:</span>
+              <span class="detail-value">Available</span>
             </div>
           </div>
-        </article>
-        <article class="proj">
-          <div class="thumb" role="img" aria-label="Local academy site thumbnail"></div>
-          <div class="body">
-            <h3>Al Habib Academy — Mini Site</h3>
-            <p class="muted">Hero, features, contact with Google Map embed.</p>
-            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
-            <div style="display:flex; gap:.5rem; margin-top:.6rem">
-              <a class="btn btn-ghost" href="#" onclick="alert('Replace with live demo link')">Live</a>
-              <a class="btn btn-ghost" href="#" onclick="alert('Replace with GitHub repo link')">Code</a>
+
+          <div class="about-buttons">
+            <a href="#" class="btn btn-primary">Hire Me</a>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality section - FIXED LAYOUT -->
+  <section class="quality-section">
+    <div class="quality-container">
+      <div class="main-heading-quality">
+        <h1>Education & Experience</h1>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Education Section -->
+        <div class="education-section">
+          <h2 class="section-title-education">My Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <h3 class="timeline-title">Master In CSE</h3>
+              <p class="timeline-subtitle">Cambridge University | 2000 - 2050</p>
+              <p class="timeline-description">
+                Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor
+                dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <h3 class="timeline-title">Master In CSE</h3>
+              <p class="timeline-subtitle">Cambridge University | 2000 - 2050</p>
+              <p class="timeline-description">
+                Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor
+                dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <h3 class="timeline-title">Master In CSE</h3>
+              <p class="timeline-subtitle">Cambridge University | 2000 - 2050</p>
+              <p class="timeline-description">
+                Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor
+                dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
+              </p>
             </div>
           </div>
-        </article>
-        <article class="proj">
-          <div class="thumb" role="img" aria-label="Simple portfolio thumbnail"></div>
-          <div class="body">
-            <h3>Simple Portfolio</h3>
-            <p class="muted">Clean sections, smooth scroll, CTA buttons.</p>
-            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
-            <div style="display:flex; gap:.5rem; margin-top:.6rem">
-              <a class="btn btn-ghost" href="#" onclick="alert('Replace with live demo link')">Live</a>
-              <a class="btn btn-ghost" href="#" onclick="alert('Replace with GitHub repo link')">Code</a>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="experience-section">
+          <h2 class="section-title-experience">My Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <h3 class="timeline-title">Web Designer</h3>
+              <p class="timeline-subtitle">Soft Company | 2000 - 2050</p>
+              <p class="timeline-description">
+                Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor
+                dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <h3 class="timeline-title">Web Designer</h3>
+              <p class="timeline-subtitle">Soft Company | 2000 - 2050</p>
+              <p class="timeline-description">
+                Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor
+                dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <h3 class="timeline-title">Web Designer</h3>
+              <p class="timeline-subtitle">Soft Company | 2000 - 2050</p>
+              <p class="timeline-description">
+                Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor
+                dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
+              </p>
             </div>
           </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-      <div class="grid" style="grid-template-columns: 1fr 1.2fr; align-items: start">
-        <div class="card">
-          <h3>Who I am</h3>
-          <p>Assalamu Alaikum! I’m <strong>Hafiz Abdullah</strong> — a frontend developer focused on crafting responsive, clean, and accessible interfaces with HTML & CSS. I also teach the Holy Qur'an online with Tajweed and a calm, supportive approach.</p>
-          <ul class="muted" style="margin: .6rem 0 0; padding-left: 1.1rem">
-            <li>Location: Pakistan</li>
-            <li>Languages: Urdu (Native), English (Conversational)</li>
-            <li>Available: Part‑time freelance & online classes</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Highlights</h3>
-          <ul style="margin: .4rem 0 0; padding-left: 1.1rem">
-            <li>Hifz‑ul‑Qur'an — Jamia Islamia Sadqia Abbasia, Minchinabad</li>
-            <li>ADP (Computer Science) — The Islamia University of Bahawalpur (affiliated)</li>
-            <li>Focused on landing pages, business mini‑sites, and readability</li>
-          </ul>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact">
-        <form class="form" onsubmit="event.preventDefault(); alert('This is a static demo form. Connect to Formspree or Netlify Forms to receive messages.');">
-          <div class="field"><label for="name">Name</label><input id="name" required placeholder="Your name" /></div>
-          <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com" /></div>
-          <div class="field"><label for="msg">Message</label><textarea id="msg" rows="4" required placeholder="Tell me about your project or class needs"></textarea></div>
-          <div style="display:flex; gap:.6rem; flex-wrap: wrap">
-            <button class="btn btn-primary" type="submit">Send Message</button>
-            <a class="btn btn-success" href="https://wa.me/923063813338" target="_blank" rel="noopener">WhatsApp Chat</a>
-            <a class="btn btn-ghost" href="mailto:abid6527842@gmail.com">Email Me</a>
-          </div>
-        </form>
-        <div class="form">
-          <h3>Quick Info</h3>
-          <p class="muted">Prefer WhatsApp? I usually reply within a few hours.</p>
-          <ul style="margin:.6rem 0 0; padding-left:1.1rem">
-            <li>WhatsApp: <a href="https://wa.me/923063813338" target="_blank" rel="noopener">+92 306 3813338</a></li>
-            <li>Email: <a href="mailto:abid6527842@gmail.com">abid6527842@gmail.com</a></li>
-            <li>Fiverr: <em>add your gig link here</em></li>
-            <li>GitHub/Portfolio: <em> <a href="https://abid338.github.io/tut45/"></a></em></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
-      <div>© <span id="year"></span> Hafiz Abdullah. All rights reserved.</div>
-      <div class="muted">Built with HTML & CSS • <a href="#top" style="color:inherit">Back to top ↑</a></div>
-    </div>
-  </footer>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme toggle (light/dark)
-    const btn = document.getElementById('themeBtn');
-    const LS_KEY = 'theme';
-    const apply = (t) => {
-      if (t === 'light') document.documentElement.classList.add('light');
-      else document.documentElement.classList.remove('light');
-      btn.textContent = t === 'light' ? '🌙' : '☀️';
-    }
-    let theme = localStorage.getItem(LS_KEY) || 'dark';
-    apply(theme);
-    btn.addEventListener('click', () => {
-      theme = theme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(LS_KEY, theme); apply(theme);
-    });
-  </script>
 </body>
+
 </html>

@@ -1,0 +1,363 @@
+# Complete Flex & Grid Properties Guide
+
+## 🎯 **FLEXBOX PROPERTIES**
+
+### **Container (Parent) Properties:**
+
+#### 1. **display: flex**
+```css
+.container {
+    display: flex; /* Element ko flex container banata hai */
+}
+```
+
+#### 2. **flex-direction** (Direction set karta hai)
+```css
+.container {
+    flex-direction: row;         /* Default - left to right */
+    flex-direction: row-reverse; /* Right to left */
+    flex-direction: column;      /* Top to bottom */
+    flex-direction: column-reverse; /* Bottom to top */
+}
+```
+
+#### 3. **flex-wrap** (Items wrap hone ke liye)
+```css
+.container {
+    flex-wrap: nowrap;    /* Default - ek hi line me (choti ho jayengi) */
+    flex-wrap: wrap;      /* Neeche line me chali jayengi */
+    flex-wrap: wrap-reverse; /* Upar line me chali jayengi */
+}
+```
+
+#### 4. **justify-content** (Main axis pe alignment)
+```css
+.container {
+    justify-content: flex-start;    /* Start me */
+    justify-content: flex-end;      /* End me */
+    justify-content: center;        /* Center me */
+    justify-content: space-between; /* Equal space between */
+    justify-content: space-around;  /* Equal space around */
+    justify-content: space-evenly;  /* Perfectly equal space */
+}
+```
+
+#### 5. **align-items** (Cross axis pe alignment)
+```css
+.container {
+    align-items: stretch;    /* Default - puri height le lenge */
+    align-items: flex-start; /* Top pe */
+    align-items: flex-end;   /* Bottom pe */
+    align-items: center;     /* Center me */
+    align-items: baseline;   /* Text baseline ke hisab se */
+}
+```
+
+#### 6. **align-content** (Multiple lines ke liye)
+```css
+.container {
+    align-content: stretch;
+    align-content: flex-start;
+    align-content: flex-end;
+    align-content: center;
+    align-content: space-between;
+    align-content: space-around;
+}
+```
+
+#### 7. **gap** (Space between items)
+```css
+.container {
+    gap: 20px;           /* Sab sides me 20px */
+    gap: 10px 20px;      /* Row gap 10px, Column gap 20px */
+    row-gap: 10px;       /* Sirf rows ke beech */
+    column-gap: 20px;    /* Sirf columns ke beech */
+}
+```
+
+---
+
+### **Item (Child) Properties:**
+
+#### 1. **flex** (Shorthand property)
+```css
+.item {
+    flex: 1;        /* Equal space le lega */
+    flex: 2;        /* Dusre items se 2x space */
+    flex: 0 0 200px; /* Grow 0, Shrink 0, Basis 200px */
+}
+```
+
+#### 2. **flex-grow** (Kitna expand ho sakta hai)
+```css
+.item {
+    flex-grow: 0; /* Default - expand nahi hoga */
+    flex-grow: 1; /* Available space le lega */
+    flex-grow: 2; /* Dusre se 2x zyada lega */
+}
+```
+
+#### 3. **flex-shrink** (Kitna shrink ho sakta hai)
+```css
+.item {
+    flex-shrink: 1; /* Default - shrink ho sakta hai */
+    flex-shrink: 0; /* Shrink nahi hoga */
+}
+```
+
+#### 4. **flex-basis** (Initial size)
+```css
+.item {
+    flex-basis: auto;   /* Content ke hisab se */
+    flex-basis: 200px;  /* Fixed 200px */
+    flex-basis: 50%;    /* 50% width */
+}
+```
+
+#### 5. **align-self** (Individual alignment)
+```css
+.item {
+    align-self: auto;       /* Parent ke hisab se */
+    align-self: flex-start; /* Top pe */
+    align-self: flex-end;   /* Bottom pe */
+    align-self: center;     /* Center me */
+    align-self: stretch;    /* Full height */
+}
+```
+
+#### 6. **order** (Sequence change karna)
+```css
+.item {
+    order: 0; /* Default */
+    order: 1; /* Pehle wala baad me aayega */
+    order: -1; /* Baad wala pehle aayega */
+}
+```
+
+---
+
+## 🎯 **GRID PROPERTIES**
+
+### **Container (Parent) Properties:**
+
+#### 1. **display: grid**
+```css
+.container {
+    display: grid; /* Element ko grid container banata hai */
+}
+```
+
+#### 2. **grid-template-columns** (Columns define karna)
+```css
+.container {
+    grid-template-columns: 200px 200px 200px;  /* 3 fixed columns */
+    grid-template-columns: 1fr 2fr 1fr;        /* Flexible columns */
+    grid-template-columns: repeat(3, 1fr);     /* 3 equal columns */
+    grid-template-columns: auto 1fr auto;      /* Auto + flexible */
+}
+```
+
+#### 3. **grid-template-rows** (Rows define karna)
+```css
+.container {
+    grid-template-rows: 100px 200px;     /* 2 fixed rows */
+    grid-template-rows: 1fr 2fr;         /* Flexible rows */
+    grid-template-rows: repeat(3, 100px); /* 3 equal rows */
+}
+```
+
+#### 4. **gap** (Grid spacing)
+```css
+.container {
+    gap: 20px;              /* Sab sides me gap */
+    gap: 10px 20px;         /* Row gap 10px, Column gap 20px */
+    grid-gap: 20px;         /* Purana syntax */
+    row-gap: 10px;          /* Sirf rows ke beech */
+    column-gap: 20px;       /* Sirf columns ke beech */
+}
+```
+
+#### 5. **justify-items** (Horizontal alignment for all items)
+```css
+.container {
+    justify-items: start;   /* Left side */
+    justify-items: end;     /* Right side */
+    justify-items: center;  /* Center */
+    justify-items: stretch; /* Full width */
+}
+```
+
+#### 6. **align-items** (Vertical alignment for all items)
+```css
+.container {
+    align-items: start;     /* Top */
+    align-items: end;       /* Bottom */
+    align-items: center;    /* Center */
+    align-items: stretch;   /* Full height */
+}
+```
+
+#### 7. **justify-content** (Grid ka horizontal position)
+```css
+.container {
+    justify-content: start;
+    justify-content: end;
+    justify-content: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}
+```
+
+#### 8. **align-content** (Grid ka vertical position)
+```css
+.container {
+    align-content: start;
+    align-content: end;
+    align-content: center;
+    align-content: space-between;
+    align-content: space-around;
+    align-content: space-evenly;
+}
+```
+
+---
+
+### **Item (Child) Properties:**
+
+#### 1. **grid-column** (Column span)
+```css
+.item {
+    grid-column: 1;         /* First column me */
+    grid-column: 1 / 3;     /* Column 1 se 3 tak */
+    grid-column: span 2;    /* 2 columns cover kare */
+    grid-column-start: 1;   /* Start from column 1 */
+    grid-column-end: 3;     /* End at column 3 */
+}
+```
+
+#### 2. **grid-row** (Row span)
+```css
+.item {
+    grid-row: 1;            /* First row me */
+    grid-row: 1 / 3;        /* Row 1 se 3 tak */
+    grid-row: span 2;       /* 2 rows cover kare */
+    grid-row-start: 1;      /* Start from row 1 */
+    grid-row-end: 3;        /* End at row 3 */
+}
+```
+
+#### 3. **grid-area** (Complete area define)
+```css
+.item {
+    grid-area: 1 / 1 / 3 / 3; /* row-start / col-start / row-end / col-end */
+    grid-area: header;         /* Named area */
+}
+```
+
+#### 4. **justify-self** (Individual horizontal alignment)
+```css
+.item {
+    justify-self: start;
+    justify-self: end;
+    justify-self: center;
+    justify-self: stretch;
+}
+```
+
+#### 5. **align-self** (Individual vertical alignment)
+```css
+.item {
+    align-self: start;
+    align-self: end;
+    align-self: center;
+    align-self: stretch;
+}
+```
+
+---
+
+## 🎯 **COMMON PATTERNS**
+
+### **Flexbox Examples:**
+```css
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Center karna */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Cards in a row */
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 300px;
+}
+```
+
+### **Grid Examples:**
+```css
+/* Basic Layout */
+.layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr 40px;
+    gap: 20px;
+    height: 100vh;
+}
+
+/* Card Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Image Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+```
+
+---
+
+## 🎯 **UNITS EXPLANATION**
+
+- **fr** = Fraction (available space ka hissa)
+- **auto** = Content ke hisab se size
+- **px** = Fixed pixels
+- **%** = Percentage of parent
+- **vh/vw** = Viewport height/width
+- **em/rem** = Font size ke relative
+
+---
+
+## 🎯 **QUICK DECISION GUIDE**
+
+### **Use Flexbox when:**
+- Navigation bars banate waqt
+- Items ko center karna ho
+- Equal height columns chahiye
+- Buttons align karne ho
+
+### **Use Grid when:**
+- Complete page layout banana ho
+- Card layouts banana ho
+- Table-like structure chahiye
+- Complex positioning karnai ho
